@@ -18,5 +18,5 @@ Ein modernes Web-Projekt in **Flask**, um Tickets für alle Formel-1-Rennen 2025
 
 1. Repository klonen:
 ```bash
-git clone git@github.com:DEINUSERNAME/F1-Tickets.git
+git clone git@github.com:divan4kk/F1-Tickets.git
 cd F1-Tickets
