@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Alle Bestellungen</h2>
+{% if orders %}
+  <div class="row">
+    {% for order in orders %}
+      {% set event = events | selectattr("id","equalto",order.event_id) | list | first %}
+      <div class="col-md-6 col-lg-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="{{ url_for('static', filename='images/' + event.image) }}" class="card-img-top" alt="{{ event.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ event.name }}</h5>
+            <p class="card-text">
+              <strong>Datum:</strong> {{ event.date }}<br>
+              <strong>Ort:</strong> {{ event.venue }}<br>
+              <strong>Name:</strong> {{ order.name }}<br>
+              <strong>E-Mail:</strong> {{ order.email }}<br>
+              <strong>Ticketart:</strong> {{ order.ticket_type }}<br>
+              <strong>Anzahl:</strong> {{ order.quantity }}
+            </p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>Es wurden noch keine Bestellungen getätigt.</p>
+{% endif %}
+{% endblock %}

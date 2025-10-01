@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Top Drivers</h2>
+  <ul class="list">
+    {% for driver in drivers %}
+      <li><b>{{ driver.name }}</b> – {{ driver.team }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

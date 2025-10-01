@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets kaufen – {{ race.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header>
+    <h1>{{ race.name }}</h1>
+    <a href="{{ url_for('index') }}" class="back-btn">← Zurück</a>
+</header>
+
+<main>
+    <div class="buy-page-container">
+        <!-- Bild + Info -->
+        <div class="race-detail-card">
+            <div class="race-image" style="background-image: url('{{ url_for('static', filename='images/' + race.image) }}');"></div>
+            <div class="race-info">
+                <h2>{{ race.name }}</h2>
+                <p><strong>Datum:</strong> {{ race.date }}</p>
+                <p><strong>Ort:</strong> {{ race.location }}</p>
+            </div>
+        </div>
+
+        <!-- Formular -->
+        <div class="form-card">
+            <h2>Tickets bestellen</h2>
+            <form action="" method="POST" class="ticket-form">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" placeholder="Max Mustermann" required>
+
+                <label for="email">E-Mail:</label>
+                <input type="email" name="email" id="email" placeholder="beispiel@mail.de" required>
+
+                <label for="quantity">Anzahl Tickets:</label>
+                <input type="number" name="quantity" id="quantity" value="1" min="1" required>
+
+                <button type="submit">Bestellen</button>
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>

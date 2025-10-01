@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Driver Standings 2025</h2>
+  <table>
+    <tr>
+      <th>Position</th>
+      <th>Name</th>
+      <th>Points</th>
+    </tr>
+    {% for s in standings %}
+      <tr>
+        <td>{{ s.pos }}</td>
+        <td>{{ s.name }}</td>
+        <td>{{ s.points }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
